@@ -1,0 +1,23 @@
+body {
+    background-color: #ebecf0ff;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.weather-box {
+    background: #fcfdfeff;
+    max-width: 600px;
+    margin: 45px auto;
+    padding: 30px;
+    box-shadow: 0px 30px 50px 1px rgba( 204, 217, 232);
+    border-radius: 15px;
+}
+
+h1 {
+    color: rgba(37, 76, 106);
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h2 {
+    color: rgba(37, 76, 106);
+    font-family: 'Josefin Sans', sans-serif;
+}
