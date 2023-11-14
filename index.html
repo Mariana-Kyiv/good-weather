@@ -18,7 +18,7 @@
 <body>
     <div class="weather-box">
     <header>
-        <form class="search-form">
+        <form>
             <input type="search" placeholder="Enter a city..." required class="search-form-input"/>
             <input type="submit" value="Search" class="search-button"/>
         </form>
@@ -32,11 +32,15 @@
         <p>
             14:49, Sunny 
             </br>
-            Humidity: 20%, Wind: 3 m/s
+            Humidity:
+            <span class="nice">20%</span>
+            , Wind: 
+            <span class="nice">3 m/s</span>
         </p>
         </div>
         <div class="temperature">
-        🌤️ 8°C
+        🌤️ 8
+        <sup class="celsium">°C</sup>
         </div>
         </div>
     </main>
