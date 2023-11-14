@@ -61,9 +61,23 @@ a {
     display: flex;
     justify-content: space-between;
 }
+.temperature-data{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    font-size: 50px;
+    margin-top: 10px;
+}
 
 .temperature {
-    font-size: 70px;
+    font-size: 90px;
+}
+
+.celsium {
+    font-size: 30px;
+    margin-top: 10px;
 }
 
 p {
@@ -74,10 +88,6 @@ p {
 .nice {
     font-weight: 500;
     color: rgba(37, 76, 106);
-}
- .celsium {
-    font-size: 40px;
- }
 
 footer {
     margin-top: 20px;
