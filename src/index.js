@@ -54,6 +54,15 @@ function showTemperature(response) {
   console.log(description);
   let descriptionElem = document.querySelector("#description");
   descriptionElem.innerHTML = description;
+  let humidity = response.data.main.humidity;
+  console.log(humidity);
+  let humidityElem = document.querySelector("#humidity");
+  humidityElem.innerHTML = humidity;
+  let wind = Math.round(response.data.wind.speed);
+  console.log(wind);
+  let windElem = document.querySelector("#wind");
+  windElem.innerHTML = wind;
+  
   let iconElem = document.querySelector("#icon");
   //let iconCode = response.data.weather[0].icon;
   //let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
