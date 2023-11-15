@@ -97,8 +97,8 @@ p {
 .nice {
     font-weight: 500;
     color: rgba(37, 76, 106);
-
-footer {
+}    
+.bottom {
     margin-top: 20px;
     text-align: center;
     font-size: 12px;
