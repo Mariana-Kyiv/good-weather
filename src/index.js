@@ -26,20 +26,19 @@ let currTime = formatDate(currentTime);
 data.innerHTML = currTime;
 
 
-//let apiKey = "50c2acd53349fabd54f52b93c8650d37";
-//let city = "Sydney";
-//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-
-
-function search(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#city-input");
+function search(city) {
   let apiKey = "50c2acd53349fabd54f52b93c8650d37";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
+
+function holdOnSerchSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-input");
+  let city = cityInput.value;
+  search(city);
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
@@ -69,4 +68,4 @@ function showTemperature(response) {
 
  }
 
-
+search("Kyiv");
