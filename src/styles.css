@@ -64,6 +64,7 @@ a {
 
 .search-button:hover {
      background: rgba(156, 182, 211);
+     cursor: pointer;
 }
 
 .weather-data {

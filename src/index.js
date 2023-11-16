@@ -34,10 +34,7 @@ data.innerHTML = currTime;
 
 function search(event) {
   event.preventDefault();
-  let cityType = document.querySelector("#h1");
   let cityInput = document.querySelector("#city-input");
-  cityType.innerHTML = cityInput.value;
-
   let apiKey = "50c2acd53349fabd54f52b93c8650d37";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
@@ -47,6 +44,8 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
 function showTemperature(response) {
+  let cityType = document.querySelector("#h1");
+  cityType.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let tempElem = document.querySelector("#temperature");
   tempElem.innerHTML = temperature;
