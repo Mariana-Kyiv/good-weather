@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="src/styles.css"/>
+    <link rel="stylesheet" href="src/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,67 +18,64 @@
 
 <body>
     <div class="weather-box">
-    <header>
-        <form id="search-form">
-            <input type="search" id="city-input" placeholder="Enter a city..." required class="search-form-input"/>
-            <input type="submit" value="Search" class="search-button"/>
-        </form>
-    </header>
-    
-    <main>
-        <div class="weather-data">
-        <div>
-        <h1 id="h1">Kyiv</h1>
-        <h3 id="data">Sat, 18, November</h3>
-        <p>
-            <div id="description">Sunny</div>
-            </br>
-            Humidity:
-            <span class="nice" id="humidity">20</span>
-            <span class="nice">%</span>
-            , Wind: 
-            <span class="nice" id="wind">3</span>
-            <span class="nice">m/s</span>
-        </p>
-        </div>
-        <div class="temperature-data">
-            <div class ="icon" id="icon">🌤️</div>
-            <div class="temperature" id="temperature">8</div>
-            <div class="celsium">°C</div>
-        </div>
-        </div>
-    </main>
-    
-    <footer class="bottom">
-        Coded by 
-        <a href="https://github.com/Mariana-Kyiv" target="_blank">
-        Mariana Marynchenko
-        </a>
-        code hosted 
-        <a href="https://github.com/Mariana-Kyiv/good-weather" target="_blank">
-        on GitHub 
-        </a>
-        site hosted 
-        <a href="https://good-weather-for-all.netlify.app/" target="_blank">
-        on Netlify
-        </a>
-        <center>
-            Like? Support me 
-            <form action="https://www.paypal.com/donate" method="post" target="_top">
-                  <input type="hidden" name="business"
-                    value="marmarvas@ukr.net">
-                    <input type="hidden"
-                    name="no_recurring" value="0">
+        <header>
+            <form id="search-form">
+                <input type="search" id="city-input" placeholder="Enter a city..." required class="search-form-input" />
+                <input type="submit" value="Search" class="search-button" />
+            </form>
+        </header>
+
+        <main>
+            <div class="weather-data">
+                <div>
+                    <h1 id="h1">Kyiv</h1>
+                    <h3 id="data">Sat, 18, November</h3>
+                    <p>
+                    <div id="description">Sunny</div>
+                    </br>
+                    Humidity:
+                    <span class="nice" id="humidity">20</span>
+                    <span class="nice">%</span>
+                    , Wind:
+                    <span class="nice" id="wind">3</span>
+                    <span class="nice">m/s</span>
+                    </p>
+                </div>
+                <div class="temperature-data">
+                    <div class="icon" id="icon">🌤️</div>
+                    <div class="temperature" id="temperature">8</div>
+                    <div class="celsium">°C</div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bottom">
+            Coded by
+            <a href="https://github.com/Mariana-Kyiv" target="_blank">
+                Mariana Marynchenko
+            </a>
+            code hosted
+            <a href="https://github.com/Mariana-Kyiv/good-weather" target="_blank">
+                on GitHub
+            </a>
+            site hosted
+            <a href="https://good-weather-for-all.netlify.app/" target="_blank">
+                on Netlify
+            </a>
+            <center>
+                Like? Support me
+                <form action="https://www.paypal.com/donate" method="post" target="_top">
+                      <input type="hidden" name="business" value="marmarvas@ukr.net">
+                    <input type="hidden" name="no_recurring" value="0">
                     <input type="hidden" name="item_name" value="Friends of Ukraine">
-                    <input
-                    type="hidden" name="item_number" value="Support Marynchenko Mariana">
-                    <input type="hidden" name="currency_code"
-                    value="USD">
-                    <input type="image" name="submit"
-                    src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate"> <img alt="" width="1" height="1"
-                    src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"></form>
-        </center>
-    </footer>
+                    <input type="hidden" name="item_number" value="Support Marynchenko Mariana">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+                        alt="Donate"> <img alt="" width="1" height="1"
+                        src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+                </form>
+            </center>
+        </footer>
     </div>
     <script src="src/index.js"></script>
 </body>
