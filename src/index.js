@@ -29,23 +29,6 @@ data.innerHTML = currTime;
 //let apiKey = "50c2acd53349fabd54f52b93c8650d37";
 //let city = "Sydney";
 //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-function search (city) {
-  let apiKey = "50c2acd53349fabd54f52b93c8650d37";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-}
-
-function holdOnSearch (event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#city-input");
-  let city = cityInput.value;
-  search(city);
-}
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
-
 function showTemperature(response) {
   let cityType = document.querySelector("#h1");
   cityType.innerHTML = response.data.name;
@@ -67,7 +50,22 @@ function showTemperature(response) {
   windElem.innerHTML = wind;
   let iconElem = document.querySelector("#icon");
   let iconCode = response.data.weather[0].icon;
-  //let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
-  iconElem.innerHTML = `<img src="icon/${IconCode}.png">`;
+  let iconUrl = `icon/${iconCode}.png`;
+  iconElem.innerHTML = `<img src=${iconUrl} class="icon" />`;
 } 
+
+function search (city) {
+  let apiKey = "50c2acd53349fabd54f52b93c8650d37";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function holdOnSearch (event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-input");
+  search(cityInput.value);
+}
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", holdOnSearch);
+
 search ("Lviv");
