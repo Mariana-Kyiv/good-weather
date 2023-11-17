@@ -26,13 +26,17 @@ let currTime = formatDate(currentTime);
 data.innerHTML = currTime;
 
 
-function search(city) {
+//let apiKey = "50c2acd53349fabd54f52b93c8650d37";
+//let city = "Sydney";
+//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+function search (city) {
   let apiKey = "50c2acd53349fabd54f52b93c8650d37";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 
-function holdOnSerchSubmit(event) {
+function holdOnSearch (event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
   let city = cityInput.value;
@@ -45,6 +49,7 @@ form.addEventListener("submit", search);
 function showTemperature(response) {
   let cityType = document.querySelector("#h1");
   cityType.innerHTML = response.data.name;
+  console.log(response.data.name);
   let temperature = Math.round(response.data.main.temp);
   let tempElem = document.querySelector("#temperature");
   tempElem.innerHTML = temperature;
@@ -60,12 +65,9 @@ function showTemperature(response) {
   console.log(wind);
   let windElem = document.querySelector("#wind");
   windElem.innerHTML = wind;
-  
   let iconElem = document.querySelector("#icon");
-  //let iconCode = response.data.weather[0].icon;
+  let iconCode = response.data.weather[0].icon;
   //let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
-  //iconElem.innerHTML = iconUrl;
-
- }
-
-search("Kyiv");
+  iconElem.innerHTML = `<img src="icon/${IconCode}.png">`;
+} 
+search ("Lviv");
