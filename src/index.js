@@ -65,7 +65,33 @@ function holdOnSearch (event) {
   let cityInput = document.querySelector("#city-input");
   search(cityInput.value);
 }
+
+function displayForecast () {
+  let forecastElem = document.querySelector("#forecast");
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+  days.forEach(function (day){
+forecastHtml =forecastHtml+ `      <div class="row">
+                <div class="col-2">
+                    <div class="forecast-day">
+                    ${day}
+                    </div>
+                    <img src="icon/01d.png" width="50px"/>
+                    <div class="forecast-temp">
+                        <span class="temp-1">15°</span>
+                        <span class="temp-2">8°</span>
+                    </div>
+                </div>
+            </div>`;
+
+  });
+forecastElem.innerHTML = forecastHtml;
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", holdOnSearch);
 
 search ("Lviv");
+
+displayForecast ();
