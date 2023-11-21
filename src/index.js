@@ -52,6 +52,7 @@ function showTemperature(response) {
   let iconCode = response.data.weather[0].icon;
   let iconUrl = `icon/${iconCode}.png`;
   iconElem.innerHTML = `<img src=${iconUrl} class="icon" />`;
+  getForecast(response.data.name);
 } 
 
 function search (city) {
@@ -65,25 +66,32 @@ function holdOnSearch (event) {
   let cityInput = document.querySelector("#city-input");
   search(cityInput.value);
 }
+function getForecast (city) {
+    let apiKey = "61e78t5e8da33f463e603bao6f4c1cce";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    axios (apiUrl).then(displayForecast);
+    console.log (apiUrl);
+}
 
-function displayForecast () {
+function displayForecast (response) {
+  console.log(response.data);
   let forecastElem = document.querySelector("#forecast");
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
   days.forEach(function (day){
-forecastHtml =forecastHtml+ `      <div class="row">
-                <div class="col-2">
-                    <div class="forecast-day">
-                    ${day}
-                    </div>
-                    <img src="icon/01d.png" width="50px"/>
-                    <div class="forecast-temp">
-                        <span class="temp-1">15°</span>
-                        <span class="temp-2">8°</span>
-                    </div>
-                </div>
-            </div>`;
+forecastHtml =
+forecastHtml+ 
+` <div class="row">
+    <div class="col-2">
+      <div class="forecast-day">${day}</div>
+         <div class="forecast-icon"><img src="icon/01d.png" width="50px"/></div>
+            <div class="forecast-temp">
+              <span class="temp-1">15°</span>
+              <span class="temp-2">8°</span>
+            </div>
+      </div>
+  </div>`;
 
   });
 forecastElem.innerHTML = forecastHtml;
@@ -92,6 +100,6 @@ forecastElem.innerHTML = forecastHtml;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", holdOnSearch);
 
-search ("Lviv");
+search ("Kyiv");
 
-displayForecast ();
+
