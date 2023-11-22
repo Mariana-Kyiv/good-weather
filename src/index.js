@@ -24,11 +24,6 @@ function formatDate(date) {
 let data = document.querySelector("#data");
 let currTime = formatDate(currentTime);
 data.innerHTML = currTime;
-
-
-//let apiKey = "50c2acd53349fabd54f52b93c8650d37";
-//let city = "Sydney";
-//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 function showTemperature(response) {
   let cityType = document.querySelector("#h1");
   cityType.innerHTML = response.data.name;
@@ -54,13 +49,11 @@ function showTemperature(response) {
   iconElem.innerHTML = `<img src=${iconUrl} class="icon" />`;
   getForecast(response.data.name);
 } 
-
 function search (city) {
   let apiKey = "50c2acd53349fabd54f52b93c8650d37";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
-
 function holdOnSearch (event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
@@ -72,19 +65,20 @@ function getForecast (city) {
     axios (apiUrl).then(displayForecast);
     console.log (apiUrl);
 }
-
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
 function displayForecast (response) {
-  console.log(response.data);
   let forecastElem = document.querySelector("#forecast");
-
- 
   let forecastHtml = "";
   response.data.daily.forEach(function (day){
 forecastHtml =
 forecastHtml+ 
 ` <div class="row">
     <div class="col-2">
-      <div class="forecast-day">Tue</div>
+      <div class="forecast-day">${formatDay(day.time)}</div>
          <div class="forecast-icon"><img src="icon/${day.condition.icon}.png" class="forecast-icon"/></div>
             <div class="forecast-temp">
               <span class="temp-1">${Math.round(day.temperature.maximum)}</span>
@@ -92,14 +86,9 @@ forecastHtml+
             </div>
       </div>
   </div>`;
-
   });
 forecastElem.innerHTML = forecastHtml;
 }
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", holdOnSearch);
-
 search ("Kyiv");
-
-
